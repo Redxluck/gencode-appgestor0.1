@@ -57,8 +57,12 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
 .btn-add{background:#4F46E5;color:#fff;border:none;border-radius:var(--border-radius-md);width:36px;height:36px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .btn-add:hover{background:#4338ca}
 .categories-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.cat-chip{display:flex;align-items:center;gap:5px;border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:4px 10px;font-size:13px;cursor:pointer;color:var(--color-text-primary);background:var(--color-background-primary)}
+.cat-chip{display:flex;align-items:center;gap:5px;border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--color-text-primary);background:var(--color-background-primary)}
 .cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+/* ESTILOS DO BOTÃO DE REMOVER CATEGORIA */
+.cat-del{background:none;border:none;color:var(--color-text-tertiary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;padding:0 2px;margin-left:4px;margin-right:-4px;}
+.cat-del:hover{color:#E24B4A;}
+
 .cat-add-row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
 .cat-add-row input[type=text]{flex:1;min-width:100px;font-size:13px;padding:8px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)}
 .cat-color-btn{width:32px;height:32px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);cursor:pointer;flex-shrink:0;padding:2px}
@@ -117,32 +121,7 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
 .export-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:1.25rem}
 .export-table-wrap table{min-width:400px}
 .global-limit-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-@media(max-width:560px){
-  #app{padding:.75rem}
-  .summary-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .summary-card.main{grid-column:1/-1}
-  .summary-value{font-size:16px}
-  .form-row{flex-direction:column;align-items:stretch}
-  .form-row input,.form-row select{width:100%;min-width:unset;flex:unset}
-  .recurrent-label{justify-content:flex-start}
-  .btn-add{width:100%;height:38px;border-radius:var(--border-radius-md)}
-  .chart-toggle{margin-left:0;width:100%;justify-content:stretch}
-  .chart-toggle button{flex:1;justify-content:center}
-  .filter-bar{gap:6px}
-  .chart-canvas-wrap{height:180px}
-  .meta-row{gap:8px}
-  .meta-bar-wrap{min-width:100%;order:3}
-  .meta-limit-input{width:80px}
-  .compare-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .comp-value{font-size:15px}
-  .export-row{flex-direction:column}
-  .export-btn{justify-content:center}
-  .tab{padding:8px 10px;font-size:12px}
-  .card{padding:.85rem 1rem}
-  .card-title{font-size:12px}
-  .global-limit-row{flex-direction:column;align-items:flex-start}
-  .global-limit-row input{width:100%}
-}
+
 /* ESTILOS DA TELA DE INÍCIO */
 .splash-screen {
   position: fixed;
@@ -154,7 +133,7 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* Fica por cima de tudo */
+  z-index: 9999; 
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .splash-screen.hidden {
@@ -181,10 +160,38 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@media(max-width:560px){
+  #app{padding:.75rem}
+  .summary-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .summary-card.main{grid-column:1/-1}
+  .summary-value{font-size:16px}
+  .form-row{flex-direction:column;align-items:stretch}
+  .form-row input,.form-row select{width:100%;min-width:unset;flex:unset}
+  .recurrent-label{justify-content:flex-start}
+  .btn-add{width:100%;height:38px;border-radius:var(--border-radius-md)}
+  .chart-toggle{margin-left:0;width:100%;justify-content:stretch}
+  .chart-toggle button{flex:1;justify-content:center}
+  .filter-bar{gap:6px}
+  .chart-canvas-wrap{height:180px}
+  .meta-row{gap:8px}
+  .meta-bar-wrap{min-width:100%;order:3}
+  .meta-limit-input{width:80px}
+  .compare-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .comp-value{font-size:15px}
+  .export-row{flex-direction:column}
+  .export-btn{justify-content:center}
+  .tab{padding:8px 10px;font-size:12px}
+  .card{padding:.85rem 1rem}
+  .card-title{font-size:12px}
+  .global-limit-row{flex-direction:column;align-items:flex-start}
+  .global-limit-row input{width:100%}
+}
     </style>
 </head>
 <body>
-  <div id="splashScreen" class="splash-screen">
+
+<div id="splashScreen" class="splash-screen">
   <div class="splash-content">
     <div class="logo-icon splash-logo">
       <i class="ti ti-wallet" aria-hidden="true"></i>
@@ -198,6 +205,7 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
     </button>
   </div>
 </div>
+
 <div id="app">
 <h2 class="sr-only">Aplicativo de gestão de gastos pessoais</h2>
 
@@ -222,7 +230,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   <button class="tab" data-tab="exportar"><i class="ti ti-download" aria-hidden="true"></i> Exportar</button>
 </div>
 
-<!-- GASTOS -->
 <div class="tab-pane active" id="tab-gastos">
   <div class="summary-grid">
     <div class="summary-card main">
@@ -275,7 +282,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   </div>
 </div>
 
-<!-- ANÁLISE -->
 <div class="tab-pane" id="tab-analise">
   <div class="card">
     <div class="card-title">Gráfico de Gastos</div>
@@ -294,7 +300,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   </div>
 </div>
 
-<!-- METAS -->
 <div class="tab-pane" id="tab-metas">
   <div class="card">
     <div class="card-title">Metas por Categoria — <span style="font-size:11px;text-transform:none;font-weight:400">Defina o limite mensal de cada categoria</span></div>
@@ -310,7 +315,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   </div>
 </div>
 
-<!-- HISTÓRICO -->
 <div class="tab-pane" id="tab-historico">
   <div class="card">
     <div class="card-title">Comparativo entre Meses</div>
@@ -321,7 +325,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   </div>
 </div>
 
-<!-- NOTIFICAÇÕES -->
 <div class="tab-pane" id="tab-notificacoes">
   <div class="card">
     <div class="card-title">Alertas e Notificações</div>
@@ -329,7 +332,6 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
   </div>
 </div>
 
-<!-- EXPORTAR -->
 <div class="tab-pane" id="tab-exportar">
   <div class="card">
     <div class="card-title">Exportar Relatório</div>
@@ -345,6 +347,21 @@ input:focus,select:focus{outline:none;border-color:#4F46E5}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
+// LÓGICA DA TELA DE INÍCIO (Apenas primeira visita)
+const splashScreen = document.getElementById('splashScreen');
+const startAppBtn = document.getElementById('startAppBtn');
+const hasVisited = localStorage.getItem('mg_hasVisited');
+
+if (hasVisited) {
+  splashScreen.style.display = 'none';
+} else {
+  startAppBtn.addEventListener('click', () => {
+    splashScreen.classList.add('hidden');
+    localStorage.setItem('mg_hasVisited', 'true');
+    setTimeout(() => { splashScreen.style.display = 'none'; }, 400); 
+  });
+}
+
 const MONTHS=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const today=new Date();
 let currentYear=today.getFullYear(),currentMonth=today.getMonth();
@@ -358,7 +375,7 @@ function saveData() {
   localStorage.setItem('mg_expenses', JSON.stringify(expenses));
 }
 
-// ======= DADOS PADRÕES (CASO SEJA O PRIMEIRO ACESSO) =======
+// ======= DADOS PADRÕES =======
 const defaultCategories = [
   {name:'Alimentação',color:'#ff6b6b'},{name:'Transporte',color:'#4ecdc4'},
   {name:'Moradia',color:'#45b7d1'},{name:'Lazer',color:'#f9ca24'},
@@ -373,7 +390,6 @@ const defaultExpenses = [
   {id:'5',desc:'Farmácia',amount:350,category:'Saúde',date:today.toISOString().split('T')[0],recurrent:false},
 ];
 
-// ======= PUXANDO OS DADOS SALVOS OU USANDO OS PADRÕES =======
 let categories = JSON.parse(localStorage.getItem('mg_categories')) || defaultCategories;
 let limits = JSON.parse(localStorage.getItem('mg_limits')) || defaultLimits;
 let expenses = JSON.parse(localStorage.getItem('mg_expenses')) || defaultExpenses;
@@ -416,10 +432,36 @@ function renderMonthLabel(){document.getElementById('monthLabel').textContent=MO
 function renderCatSelect(){
   document.getElementById('expCat').innerHTML=categories.map(c=>`<option value="${c.name}">${c.name}</option>`).join('');
 }
+
+// ==== ATUALIZADO: RENDERIZAÇÃO DAS CATEGORIAS COM BOTÃO DE REMOVER ====
 function renderCatChips(){
   document.getElementById('catChips').innerHTML=categories.map(c=>
-    `<div class="cat-chip"><span class="cat-dot" style="background:${c.color}"></span>${c.name}</div>`
+    `<div class="cat-chip">
+      <span class="cat-dot" style="background:${c.color}"></span>
+      ${c.name}
+      <button class="cat-del" data-name="${c.name}" aria-label="Remover Categoria" title="Remover categoria"><i class="ti ti-x"></i></button>
+    </div>`
   ).join('');
+
+  // Lógica para deletar a categoria ao clicar no "X"
+  document.querySelectorAll('.cat-del').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const catName = btn.getAttribute('data-name');
+      
+      // Remove da lista de categorias
+      categories = categories.filter(c => c.name !== catName);
+      
+      // Remove da lista de metas/limites
+      if (limits[catName] !== undefined) {
+        delete limits[catName];
+      }
+      
+      saveData();
+      renderCatSelect();
+      renderCatChips();
+      renderAll();
+    });
+  });
 }
 
 function renderSummary(){
@@ -453,7 +495,7 @@ function renderList(){
   }).join('');
   el.querySelectorAll('.exp-del').forEach(btn=>btn.addEventListener('click',()=>{
     expenses=expenses.filter(e=>e.id!==btn.getAttribute('data-id'));
-    saveData(); // SALVA AO EXCLUIR
+    saveData(); 
     renderAll();
   }));
 }
@@ -461,7 +503,13 @@ function renderList(){
 function renderChart(){
   const list=filteredExpenses();
   const totals={};categories.forEach(c=>{totals[c.name]=0});
-  list.forEach(e=>{totals[e.category]=(totals[e.category]||0)+e.amount});
+  list.forEach(e=>{
+    // Se a categoria foi deletada, agrupa como "Outros" ou apenas conta o valor geral. 
+    // Como queremos manter visível, vamos adicionar à chave dela mesma se existir, ou ignorar do gráfico segmentado se não estiver na lista ativa.
+    if(categories.find(c=>c.name===e.category)) {
+      totals[e.category]=(totals[e.category]||0)+e.amount;
+    }
+  });
   const labels=categories.map(c=>c.name);
   const data=labels.map(l=>parseFloat((totals[l]||0).toFixed(2)));
   const colors=categories.map(c=>c.color);
@@ -482,7 +530,11 @@ function renderChart(){
 function renderMetas(){
   const month=monthExpenses(currentYear,currentMonth);
   const totals={};categories.forEach(c=>{totals[c.name]=0});
-  month.forEach(e=>{totals[e.category]=(totals[e.category]||0)+e.amount});
+  month.forEach(e=>{
+    if(categories.find(c=>c.name===e.category)){
+      totals[e.category]=(totals[e.category]||0)+e.amount;
+    }
+  });
   const el=document.getElementById('metaList');
   el.innerHTML=categories.map(c=>{
     const spent=totals[c.name]||0;
@@ -504,7 +556,7 @@ function renderMetas(){
   }).join('');
   el.querySelectorAll('.meta-limit-input').forEach(inp=>inp.addEventListener('change',()=>{
     limits[inp.getAttribute('data-cat')]=parseFloat(inp.value)||0;
-    saveData(); // SALVA AO MODIFICAR LIMITE
+    saveData(); 
     renderMetas();renderNotificacoes();
   }));
   const totalSpent=month.reduce((s,e)=>s+e.amount,0);
@@ -542,7 +594,11 @@ function renderHistorico(){
 function renderNotificacoes(){
   const month=monthExpenses(currentYear,currentMonth);
   const totals={};categories.forEach(c=>{totals[c.name]=0});
-  month.forEach(e=>{totals[e.category]=(totals[e.category]||0)+e.amount});
+  month.forEach(e=>{
+    if(categories.find(c=>c.name===e.category)){
+      totals[e.category]=(totals[e.category]||0)+e.amount;
+    }
+  });
   const totalSpent=month.reduce((s,e)=>s+e.amount,0);
   const gLim=parseFloat(document.getElementById('globalLimit').value)||0;
   const notifs=[];
@@ -611,7 +667,6 @@ document.getElementById('exportPrint').addEventListener('click',()=>{
   win.document.close();win.print();
 });
 
-// Restaurando e salvando também o limite global
 document.getElementById('globalLimit').value = localStorage.getItem('mg_globalLimit') || '';
 document.getElementById('globalLimit').addEventListener('change',(e)=>{
   localStorage.setItem('mg_globalLimit', e.target.value);
@@ -651,7 +706,7 @@ document.getElementById('addBtn').addEventListener('click',()=>{
   if(!desc||isNaN(val)||val<=0||!date)return;
   expenses.push({id:Date.now().toString(),desc,amount:val,category:cat,date,recurrent:rec});
   
-  saveData(); // SALVA AO ADICIONAR GASTO
+  saveData(); 
   
   document.getElementById('expDesc').value='';document.getElementById('expVal').value='';
   document.getElementById('expRecurrent').checked=false;
@@ -664,7 +719,7 @@ document.getElementById('addCatBtn').addEventListener('click',()=>{
   if(!name||categories.find(c=>c.name.toLowerCase()===name.toLowerCase()))return;
   categories.push({name,color});
   
-  saveData(); // SALVA AO ADICIONAR CATEGORIA
+  saveData(); 
   
   document.getElementById('newCatName').value='';
   renderCatSelect();renderCatChips();
@@ -678,29 +733,6 @@ document.getElementById('nextMonth').addEventListener('click',()=>{
   currentMonth++;if(currentMonth>11){currentMonth=0;currentYear++}
   renderMonthLabel();renderAll();
 });
-// LÓGICA DA TELA DE INÍCIO (Apenas primeira visita)
-const splashScreen = document.getElementById('splashScreen');
-const startAppBtn = document.getElementById('startAppBtn');
-
-// Verifica se é a primeira vez que a pessoa acessa
-const hasVisited = localStorage.getItem('mg_hasVisited');
-
-if (hasVisited) {
-  // Se já acessou antes, remove a tela de início imediatamente
-  splashScreen.style.display = 'none';
-} else {
-  // Se é a primeira vez, aguarda o clique no botão
-  startAppBtn.addEventListener('click', () => {
-    splashScreen.classList.add('hidden');
-    // Salva no localStorage que o usuário já viu a tela inicial
-    localStorage.setItem('mg_hasVisited', 'true');
-    
-    // Remove o elemento da página após a animação (opcional, para limpar memória)
-    setTimeout(() => {
-      splashScreen.style.display = 'none';
-    }, 400); 
-  });
-}
 
 function renderAll(){renderSummary();renderList();renderNotificacoes()}
 
