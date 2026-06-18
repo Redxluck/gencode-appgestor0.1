@@ -8,6 +8,18 @@
       "persist": true,
       "invocation_logs": true
     },
+{
+  "name": "piggy",
+  "main": "index.js",
+  "compatibility_date": "2026-06-18",
+  "observability": {
+    "enabled": false,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  }
+}
     "traces": {
       "enabled": false,
       "persist": true,
