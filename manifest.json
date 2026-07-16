@@ -1,15 +1,29 @@
 {
-  "name": "Piggy - Controle Financeiro",
-  "short_name": "Piggy",
+  "name": "Pig - Controle Financeiro",
+  "short_name": "Dr.Pig",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#4f46e5",
+  "theme_color": "#4400ff",
   "icons": [
     {
       "src": "https://i.imgur.com/kmQiABy.png",
       "sizes": "600x600",
       "type": "image/png"
     }
+  ],
+  "lang": "pt",
+  "id": "drpig",
+  "description": "Gestor para controle de gastos",
+  "orientation": "landscape",
+  "dir": "auto",
+  "display_override": [
+    "fullscreen",
+    "browser",
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "categories": [
+    "finance"
   ]
 }
