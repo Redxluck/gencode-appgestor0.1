@@ -4,7 +4,7 @@
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#4400ff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "https://i.imgur.com/kmQiABy.png",
@@ -12,18 +12,14 @@
       "type": "image/png"
     }
   ],
-  "lang": "pt",
   "id": "drpig",
   "description": "Gestor para controle de gastos",
-  "orientation": "landscape",
+  "lang": "pt",
   "dir": "auto",
+  "orientation": "any",
   "display_override": [
     "fullscreen",
-    "browser",
     "window-controls-overlay",
     "standalone"
-  ],
-  "categories": [
-    "finance"
   ]
 }
